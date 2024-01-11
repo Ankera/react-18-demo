@@ -1,21 +1,21 @@
-import { useState } from "react";
-import Comp1 from '@/components/comp1'
-import Comp2 from "./components/comp2";
+import { useRoutes } from 'react-router-dom';
+import routes from "@/router/route.tsx";
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState<number>(0);
 
-  const addCount = () => {
-    setCount(count + 1);
-  }
+  const outlet = useRoutes(routes);
 
   return (
-    <div onClick={addCount}>
-      顶级组件
-      {count}
+    <div className='App'>
+      
+      {/* <Link to={{
+        pathname: 'home'
+      }}>Home</Link>
+      <Link to='about'>About</Link>
+      <Link to='user'>User</Link> */}
 
-      <h1><Comp1 /></h1>
-      <h1><Comp2 /></h1>
+      {outlet}
     </div>
   );
 }

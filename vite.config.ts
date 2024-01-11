@@ -6,9 +6,15 @@ import react from '@vitejs/plugin-react-swc'
  * https://juejin.cn/post/7203169721839042615?searchId=20240109025802CA2803BCAA27734921F4
  */
 
+// console.log('================', process.env)
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+
+  // define: {
+  //   'process.env': {}
+  // },
 
   css: {
     // 禁用将样式提取到单独文件
@@ -25,7 +31,7 @@ export default defineConfig({
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled into your library
-      external: ['react', 'react-dom'],
+      // external: ['react', 'react-dom'],
       output: {
         // Provide global variables to use in the UMD build
         // for externalized deps
